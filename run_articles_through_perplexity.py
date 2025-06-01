@@ -10,27 +10,7 @@ import csv
 import json
 from datetime import datetime
 from misinformation_detector import MisinformationDetector
-
-
-def get_api_key():
-    """
-    Get the Perplexity API key from environment variable or user input
-    
-    Returns:
-        str: The API key
-    """
-    api_key = os.getenv('PERPLEXITY_API_KEY')
-    
-    if not api_key:
-        print("Perplexity API key not found in environment variables.")
-        print("Please enter your Perplexity API key:")
-        api_key = input().strip()
-        
-        if not api_key:
-            print("Error: API key is required to proceed.")
-            sys.exit(1)
-    
-    return api_key
+from utils import get_api_key
 
 
 def analyze_articles(input_file="FA-KES-Dataset.csv", output_file=None, max_articles=None):

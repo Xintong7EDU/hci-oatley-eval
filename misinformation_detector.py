@@ -14,6 +14,7 @@ import random
 from typing import Dict, List, Optional, Any
 from dataclasses import dataclass
 import time
+from utils import get_api_key
 
 
 @dataclass
@@ -381,15 +382,8 @@ def main():
     """
     Main function to run the misinformation detector
     """
-    # Get API key from environment variable or user input
-    api_key = os.getenv('PERPLEXITY_API_KEY')
-    
-    if not api_key:
-        api_key = input("Please enter your Perplexity AI API key: ").strip()
-        
-        if not api_key:
-            print("Error: API key is required")
-            sys.exit(1)
+    # Get API key
+    api_key = get_api_key()
     
     # Initialize the detector
     detector = MisinformationDetector(api_key)

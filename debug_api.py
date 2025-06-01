@@ -3,15 +3,15 @@
 Debug script to test Perplexity API connection
 """
 
-import os
 import requests
 import json
+from utils import get_api_key
 
 def test_api_connection():
     """Test the Perplexity API with a simple request"""
-    
+
     # Get API key
-    api_key = os.getenv('PERPLEXITY_API_KEY', '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')
+    api_key = get_api_key()
     
     url = "https://api.perplexity.ai/chat/completions"
     headers = {
