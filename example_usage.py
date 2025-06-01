@@ -3,7 +3,7 @@
 Example usage of the MisinformationDetector class
 """
 
-import os
+from utils import get_api_key
 from misinformation_detector import MisinformationDetector
 
 
@@ -11,13 +11,8 @@ def main():
     """
     Example demonstrating how to use the MisinformationDetector
     """
-    # Get API key from environment variable
-    api_key = os.getenv('PERPLEXITY_API_KEY')
-    
-    if not api_key:
-        print("Please set the PERPLEXITY_API_KEY environment variable")
-        print("Example: export PERPLEXITY_API_KEY='your_api_key_here'")
-        return
+    # Get API key
+    api_key = get_api_key()
     
     # Initialize the detector
     detector = MisinformationDetector(api_key)

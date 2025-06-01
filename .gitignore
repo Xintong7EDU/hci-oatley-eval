@@ -1,0 +1,15 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# Environment variables
+.env
+
+# Data and result files
+FA-KES-Dataset.csv
+analyzed_articles_*.csv
+accuracy_evaluation_*.csv
+analysis_results.csv
+
+# Misc
+.DS_Store

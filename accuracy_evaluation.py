@@ -10,6 +10,7 @@ import csv
 import json
 from datetime import datetime
 from misinformation_detector import MisinformationDetector
+from utils import get_api_key
 
 
 def analyze_and_compare(input_file="FA-KES-Dataset.csv", num_articles=50, output_file=None):
@@ -22,15 +23,7 @@ def analyze_and_compare(input_file="FA-KES-Dataset.csv", num_articles=50, output
         output_file (str): Path to save detailed results (optional)
     """
     # Get API key
-    api_key = os.getenv('PERPLEXITY_API_KEY')
-    if not api_key:
-        print("Perplexity API key not found in environment variables.")
-        print("Please enter your Perplexity API key:")
-        api_key = input().strip()
-        
-        if not api_key:
-            print("Error: API key is required to proceed.")
-            sys.exit(1)
+    api_key = get_api_key()
     
     # Initialize the detector
     print("Initializing Misinformation Detector...")

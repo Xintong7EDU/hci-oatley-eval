@@ -3,9 +3,9 @@
 Quick test script to analyze a single article from the dataset
 """
 
-import os
 import csv
 from misinformation_detector import MisinformationDetector
+from utils import get_api_key
 
 
 def test_single_article():
@@ -13,16 +13,7 @@ def test_single_article():
     Test the analysis with a single article from the CSV dataset
     """
     # Get API key
-    api_key = os.getenv('PERPLEXITY_API_KEY')
-    
-    if not api_key:
-        print("Perplexity API key not found in environment variables.")
-        print("Please enter your Perplexity API key:")
-        api_key = input().strip()
-        
-        if not api_key:
-            print("Error: API key is required to proceed.")
-            return
+    api_key = get_api_key()
     
     # Initialize detector
     print("Initializing Misinformation Detector...")
